@@ -44,7 +44,7 @@ WlSessionLock {
         border.color: Colors.md3.on_primary
         radius: 30
       }
-      font.pixelSize: 20
+      font.pixelSize: 36
       placeholderTextColor: Colors.md3.primary
       rightPadding: 52
       leftPadding: 52

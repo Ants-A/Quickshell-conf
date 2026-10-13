@@ -67,8 +67,8 @@ Scope {
 			margins.bottom: screen.height / 15
 			exclusiveZone: 0
 
-			implicitWidth: 225
-			implicitHeight: 50
+			implicitWidth: 450
+			implicitHeight: 90
 			color: "transparent"
 
 			// An empty click mask prevents the window from blocking mouse events.
@@ -76,7 +76,7 @@ Scope {
 
 			Rectangle {
 				anchors.fill: parent
-				radius: height / 2
+				radius: 12
 				color: "#70" + Colors.md3.on_primary_fixed.substring(1)
 
 				RowLayout {
@@ -88,10 +88,10 @@ Scope {
 					spacing: 10
 
           Text {
-            Layout.preferredWidth: 30
+            Layout.preferredWidth: 60
             horizontalAlignment: Text.AlignHCenter
             font.family: "Symbols Nerd Font"
-            font.pixelSize: 24
+            font.pixelSize: 40
             color: "#eff0f1"
             text: ""   // sun
           }
@@ -100,8 +100,8 @@ Scope {
 						// Stretches to fill all left-over space
 						Layout.fillWidth: true
 
-						implicitHeight: 10
-						radius: 3
+						implicitHeight: 20
+						radius: 4
 						color: Colors.md3.background
 
 						Rectangle {
@@ -119,7 +119,7 @@ Scope {
 					Text {
 						text: Math.round(root.brightness * 100)
 						color: "#eff0f1"
-						font.pixelSize: 18
+						font.pixelSize: 32
 						font.bold: true
 					}
 				}
