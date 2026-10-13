@@ -16,7 +16,7 @@ Rectangle { //Battery box
     Layout.alignment: Qt.AlignVCenter
 
     property var device: UPower.devices.values[0]
-    property real pct: (device?.percentage ?? 0) * 100
+    property real pct: (device?.percentage ?? 0) * 100 * 1.25
     property bool charging: device?.state === UPowerDeviceState.Charging
 
     property int barCount: {
@@ -28,8 +28,7 @@ Rectangle { //Battery box
     }
 
     property color barColor: {
-      var bat_round = Math.ceil(pct / 10) * 10 + 10
-      bat_round = Math.max(0, Math.min(100, bat_round))
+      var bat_round = Math.ceil(pct / 10) * 10 
       return Colors.palette["primary" + bat_round]
     }
 
@@ -47,6 +46,7 @@ Rectangle { //Battery box
           Layout.topMargin: 3 * batteryBox.uiScale
           Layout.fillWidth: true
           Layout.fillHeight: true
+          radius: 3
           color: index < batteryBox.barCount ? batteryBox.barColor : "transparent"
         }
       }
