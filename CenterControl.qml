@@ -7,9 +7,11 @@ import QtQml.Models
 import "./Notifications"
 
 PanelWindow {
+  id: centerWindow
+  readonly property real uiScale: UiScale.factor(width)
   property bool centerOpen: false
   property var notServer
-  property var default_x: 2028
+  property var default_x: 2028 * uiScale
   signal toggle()
   WlrLayershell.namespace: "qs-bar"
 
@@ -48,16 +50,16 @@ PanelWindow {
       anchors {
         top: parent.top
         bottom: parent.bottom
-        rightMargin: 20
-        topMargin: 20
-        bottomMargin: 76
+        rightMargin: 20 * uiScale
+        topMargin: 20 * uiScale
+        bottomMargin: 76 * uiScale
       }
       x: default_x + 1000
-      width: 512
+      width: 512 * uiScale
       color: "#70000000"
-      border.width: 3
+      border.width: 3 * uiScale
       border.color: Colors.md3.primary
-      radius: 16
+      radius: 16 * uiScale
 
       MouseArea {
         anchors.fill: parent
@@ -74,14 +76,14 @@ PanelWindow {
       Rectangle { // notification history
         anchors {
           fill: parent
-          topMargin: 400
-          rightMargin: 10
-          leftMargin: 10
-          bottomMargin: 10
+          topMargin: 400 * uiScale
+          rightMargin: 10 * uiScale
+          leftMargin: 10 * uiScale
+          bottomMargin: 10 * uiScale
         }
-        border.width: 2
+        border.width: 2 * uiScale
         border.color: Colors.md3.primary_container
-        radius: 8
+        radius: 8 * uiScale
         color: "#30000000"
 
         RowLayout {
@@ -90,20 +92,20 @@ PanelWindow {
             top: parent.top
             left: parent.left
             right: parent.right
-            margins: 12
+            margins: 12 * uiScale
           }
 
           Text {
             Layout.fillWidth: true
             text: "Notifications"
             color: Colors.md3.primary
-            font.pixelSize: 28
+            font.pixelSize: 28 * uiScale
           }
 
           Text {
             text: "Clear All"
             color: notServer.history.count > 0 ? Colors.md3.error : Colors.palette.neutral40
-            font.pixelSize: 28
+            font.pixelSize: 28 * uiScale
             MouseArea {
               anchors.fill: parent
               onClicked: { notServer.history.clear() }
@@ -118,18 +120,19 @@ PanelWindow {
             bottom: parent.bottom
             left: parent.left
             right: parent.right
-            leftMargin: 24
-            topMargin: 12
-            bottomMargin: 12
+            leftMargin: 24 * uiScale
+            topMargin: 12 * uiScale
+            bottomMargin: 12 * uiScale
           }
           clip: true
-          spacing: 12
+          spacing: 12 * uiScale
 
           model: notServer.history
 
           delegate: PopUp {
             id: historyCard
-            width: historyListView.width - 24
+            width: historyListView.width - 24 * uiScale
+            scaleFactor: centerWindow.uiScale
             history: notServer.history
             resolveNotif: (id) => notServer.liveNotification(id)
 

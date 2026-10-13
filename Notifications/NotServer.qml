@@ -139,18 +139,20 @@ Scope {
   }
 
   PanelWindow { // The notification popups
+    id: popupWindow
+    readonly property real uiScale: UiScale.factor(screen.width)
     anchors {
       bottom: true
       right: true
     }
 
     margins {
-      bottom: 78
-      right: 18
+      bottom: 78 * uiScale
+      right: 18 * uiScale
     }
 
-    width: 512
-    implicitHeight: 900 // tall enough for any realistic stack
+    width: 512 * uiScale
+    implicitHeight: 900 * uiScale // tall enough for any realistic stack
     color: "transparent"
     exclusionMode: ExclusionMode.Ignore
 
@@ -160,7 +162,7 @@ Scope {
     ListView {
       id: list
       width: parent.width
-      spacing: 12
+      spacing: 12 * popupWindow.uiScale
       clip: false
       interactive: false
       model: root.activePopups
@@ -172,6 +174,7 @@ Scope {
 
       delegate: PopUp {
         id: popupCard
+        scaleFactor: popupWindow.uiScale
         history: root.history
         resolveNotif: (id) => root.liveNotification(id)
 
@@ -182,7 +185,7 @@ Scope {
           PropertyAction { target: popupCard; property: "ListView.delayRemove"; value: true }
           ParallelAnimation {
             NumberAnimation { target: popupCard; property: "opacity"; to: 0; duration: 200 }
-            NumberAnimation { target: popupCard; property: "x"; to: 420; duration: 200 }
+            NumberAnimation { target: popupCard; property: "x"; to: 420 * uiScale; duration: 200 }
           }
           PropertyAction { target: popupCard; property: "ListView.delayRemove"; value: false }
         }

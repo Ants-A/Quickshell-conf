@@ -59,6 +59,7 @@ Scope {
 		active: root.shouldShowOsd
 
 		PanelWindow {
+      readonly property real uiScale: UiScale.factor(screen.width)
 			// Since the panel's screen is unset, it will be picked by the compositor
 			// when the window is created. Most compositors pick the current active monitor.
       WlrLayershell.layer: WlrLayer.Overlay
@@ -67,8 +68,8 @@ Scope {
 			margins.bottom: screen.height / 15
 			exclusiveZone: 0
 
-			implicitWidth: 450
-			implicitHeight: 90
+			implicitWidth: 450 * uiScale
+			implicitHeight: 90 * uiScale
 			color: "transparent"
 
 			// An empty click mask prevents the window from blocking mouse events.
@@ -76,22 +77,22 @@ Scope {
 
 			Rectangle {
 				anchors.fill: parent
-				radius: 12
+				radius: 12 * uiScale
 				color: "#70" + Colors.md3.on_primary_fixed.substring(1)
 
 				RowLayout {
 					anchors {
 						fill: parent
-						leftMargin: 10
-						rightMargin: 15
+						leftMargin: 10 * uiScale
+						rightMargin: 15 * uiScale
 					}
-					spacing: 10
+					spacing: 10 * uiScale
 
           Text {
-            Layout.preferredWidth: 60
+            Layout.preferredWidth: 60 * uiScale
             horizontalAlignment: Text.AlignHCenter
             font.family: "Symbols Nerd Font"
-            font.pixelSize: 40
+            font.pixelSize: 40 * uiScale
             color: "#eff0f1"
             text: ""   // sun
           }
@@ -100,8 +101,8 @@ Scope {
 						// Stretches to fill all left-over space
 						Layout.fillWidth: true
 
-						implicitHeight: 20
-						radius: 4
+						implicitHeight: 20 * uiScale
+						radius: 4 * uiScale
 						color: Colors.md3.background
 
 						Rectangle {
@@ -119,7 +120,7 @@ Scope {
 					Text {
 						text: Math.round(root.brightness * 100)
 						color: "#eff0f1"
-						font.pixelSize: 32
+						font.pixelSize: 32 * uiScale
 						font.bold: true
 					}
 				}
@@ -127,4 +128,3 @@ Scope {
 		}
 	}
 }
-

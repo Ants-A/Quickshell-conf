@@ -38,15 +38,16 @@ ShellRoot {
         left: true
         right: true
       }
+      property real uiScale: UiScale.factor(width)
       margins {
-        bottom: 4
-        left: 6
-        right: 6
+        bottom: 4 * uiScale
+        left: 6 * uiScale
+        right: 6 * uiScale
       }
       WlrLayershell.namespace: "qs-bar"
       required property var modelData
       screen: modelData
-      implicitHeight: 52
+      implicitHeight: 52 * uiScale
       color: "transparent"
       
       Bar {

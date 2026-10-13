@@ -5,13 +5,14 @@ import QtQuick.Layouts
 import Quickshell.Services.SystemTray
 
 Repeater {
+  property real uiScale: 1
   model: SystemTray.items
   delegate: IconImage {
     id: trayIcon
     required property SystemTrayItem modelData
     source: modelData.icon
-    width: 20
-    height: 20
+    width: 20 * uiScale
+    height: 20 * uiScale
 
     QsMenuAnchor {
       id: trayMenu

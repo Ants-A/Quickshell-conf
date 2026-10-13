@@ -5,12 +5,13 @@ import ".."
 
 Rectangle { //Battery box
     id: batteryBox
-    width: 100
-    height: 36
+    property real uiScale: 1
+    width: 100 * uiScale
+    height: 36 * uiScale
     color: "transparent"
     border.color: Colors.md3.primary
-    border.width: 2
-    radius: 8
+    border.width: 2 * uiScale
+    radius: 8 * uiScale
     clip: true
     Layout.alignment: Qt.AlignVCenter
 
@@ -35,15 +36,15 @@ Rectangle { //Battery box
     RowLayout {
       anchors.fill: parent
       anchors.margins: batteryBox.border.width
-      anchors.leftMargin: 5
-      anchors.rightMargin: 5
-      spacing: 2
+      anchors.leftMargin: 5 * batteryBox.uiScale
+      anchors.rightMargin: 5 * batteryBox.uiScale
+      spacing: 2 * batteryBox.uiScale
 
       Repeater {
         model: 5
         Rectangle {
-          Layout.bottomMargin: 3
-          Layout.topMargin: 3
+          Layout.bottomMargin: 3 * batteryBox.uiScale
+          Layout.topMargin: 3 * batteryBox.uiScale
           Layout.fillWidth: true
           Layout.fillHeight: true
           color: index < batteryBox.barCount ? batteryBox.barColor : "transparent"
@@ -54,7 +55,7 @@ Rectangle { //Battery box
     Text {
       anchors.centerIn: parent
       color: Colors.palette.primary90
-      font.pixelSize: 24
+      font.pixelSize: 24 * batteryBox.uiScale
       font.bold: true
       style: Text.Outline
       styleColor: "black"

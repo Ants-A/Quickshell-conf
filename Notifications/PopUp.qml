@@ -5,6 +5,7 @@ import ".."
 
 Rectangle {
   id: card
+  property real scaleFactor: 1
 
   // Plain text/data fields, auto-bound from ListModel roles by the view
   // delegate. Only strings/numbers/booleans — no QObjects — are ever stored
@@ -31,14 +32,14 @@ Rectangle {
   // dangle once the notification closes.
   property var resolveNotif: null
 
-  implicitWidth: 512
-  radius: 12
+  implicitWidth: 512 * scaleFactor
+  radius: 12 * scaleFactor
   color: "#80000000"
-  border.width: 2
+  border.width: 2 * scaleFactor
   border.color: Colors.md3.primary
 
   // Left edge of the text column (moves right when an icon is shown).
-  readonly property real textX: icon.visible ? 24 + icon.width + 24 : 10
+  readonly property real textX: icon.visible ? 24 * scaleFactor + icon.width + 24 * scaleFactor : 10 * scaleFactor
   // The text column gets an explicit width so wrapMode + maximumLineCount
   // produce a deterministic laid-out height (implicit heights of wrapped
   // Text do not, which is why the card previously collapsed to 84px).
@@ -46,10 +47,11 @@ Rectangle {
   // 400) so cards sized differently — e.g. the narrower CenterControl
   // history card — wrap text inside themselves instead of overflowing the
   // card edge.
-  readonly property real textWidth: Math.max(0, width - textX - 10)
+  readonly property real textWidth: Math.max(0, width - textX - 10 * scaleFactor)
 
-  implicitHeight: Math.max(icon.height + 20,
-                           texts.height + 20 + (actionRow.visible ? actionRow.height + 10 : 0))
+  implicitHeight: Math.max(icon.height + 20 * scaleFactor,
+                           texts.height + 20 * scaleFactor +
+                           (actionRow.visible ? actionRow.height + 10 * scaleFactor : 0))
 
   // Removes this card's entry from the history model, found by the plain
   // `notifId` role (survives ListModel's copy semantics).
@@ -96,10 +98,10 @@ Rectangle {
 
   Image {
     id: icon
-    x: 10
-    y: 10
-    width: 52
-    height: 52
+    x: 10 * scaleFactor
+    y: 10 * scaleFactor
+    width: 52 * scaleFactor
+    height: 52 * scaleFactor
     fillMode: Image.PreserveAspectFit
     mipmap: true
     source: card.image
@@ -109,9 +111,9 @@ Rectangle {
   Column {
     id: texts
     x: card.textX
-    y: 14
+    y: 14 * scaleFactor
     width: card.textWidth
-    spacing: 6
+    spacing: 6 * scaleFactor
 
     Text {
       id: summaryText
@@ -120,7 +122,7 @@ Rectangle {
       text: card.summary
       color: "white"
       font.bold: true
-      font.pixelSize: 24
+      font.pixelSize: 24 * scaleFactor
       // Text.Wrap wraps at word boundaries; this Qt's Text.Wrap is an alias
       // of WrapAtWordBoundaryOrAnywhere, which also breaks *unbreakable* long
       // words (URLs, tokens) so they never overflow the box. maximumLineCount
@@ -137,7 +139,7 @@ Rectangle {
       text: card.body
       visible: text !== ""
       color: "white"
-      font.pixelSize: 24
+      font.pixelSize: 24 * scaleFactor
       wrapMode: Text.Wrap
       maximumLineCount: 4
       elide: Text.ElideRight
@@ -157,26 +159,26 @@ Rectangle {
     objectName: "actionRow"
     visible: card.actionList.length > 0
     x: card.textX
-    y: texts.y + texts.height + 8
-    spacing: 12
+    y: texts.y + texts.height + 8 * scaleFactor
+    spacing: 12 * scaleFactor
 
     Repeater {
       model: card.actionList
 
       delegate: Rectangle {
         objectName: "actionButton"
-        height: 36
-        radius: 8
+        height: 36 * scaleFactor
+        radius: 8 * scaleFactor
         // Darken the fill on hover for clear visual feedback.
         color: hoverArea.containsMouse ? Qt.darker(Colors.md3.primary, 1.2) : Colors.md3.primary
-        width: Math.min(actionLabel.implicitWidth + 36, 240)
+        width: Math.min(actionLabel.implicitWidth + 36 * scaleFactor, 240 * scaleFactor)
 
         Text {
           id: actionLabel
           anchors.centerIn: parent
           text: modelData.text
           color: Colors.md3.on_primary
-          font.pixelSize: 14
+          font.pixelSize: 14 * scaleFactor
           font.bold: true
           elide: Text.ElideRight
           width: Math.min(implicitWidth, parent.width - 24)
