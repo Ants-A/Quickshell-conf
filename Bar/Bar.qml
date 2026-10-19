@@ -9,6 +9,7 @@ import Quickshell.Services.SystemTray
 //Homemade files
 import "TrayIcons.qml"
 import "BatteryIcon.qml"
+import "SysPerformance.qml"
 import ".."
 
 
@@ -39,10 +40,25 @@ Rectangle{
     anchors.rightMargin: 20 * root.uiScale
     spacing: 24 * root.uiScale
 
+    // LEFT
+    SysPerformance {
+      Layout.leftMargin: 18 * root.uiScale
+      uiScale: root.uiScale
+      Layout.alignment: Qt.AlignVCenter
+    }
+
     Item { Layout.fillWidth: true } // pushes everything to the right
 
     Row {
       spacing: 24 * root.uiScale
+
+      Rectangle {
+        color: "transparent"
+        anchors {
+          right: parent.right
+          left: parent.left
+        }
+      }
 
       //TrayIcons {}
 
