@@ -20,10 +20,10 @@ Rectangle { //Battery box
     property bool charging: device?.state === UPowerDeviceState.Charging
 
     property int barCount: {
-      if (pct >= 75) return 5
+      if (pct >= 80) return 5
       else if (pct >= 60) return 4
-      else if (pct >= 30) return 3
-      else if (pct >= 10) return 2
+      else if (pct >= 40) return 3
+      else if (pct >= 20) return 2
       else return 1
     }
 
