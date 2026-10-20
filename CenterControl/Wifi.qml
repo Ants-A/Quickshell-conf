@@ -85,13 +85,13 @@ Rectangle {
       text: root.wifiIcon + " "
       color: root.connected ? Colors.primary : Colors.outline
       font.family: "JetBrainsMono Nerd Font"   // use whatever Nerd Font you have installed
-      font.pixelSize: 64 * uiScale
+      font.pixelSize: 56 * uiScale
     }
 
     Text {
       text: root.connected ? root.ssid : "Not connected"
       color: Colors.primary
-      font.pixelSize: 58 * uiScale
+      font.pixelSize: 50 * uiScale
     }
   }
 

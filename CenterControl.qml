@@ -60,8 +60,8 @@ PanelWindow {
 
       Behavior on x {
         SpringAnimation {
-          spring: 10
-          damping: 0.45
+          spring: 5
+          damping: 0.35
         }
       }
 
