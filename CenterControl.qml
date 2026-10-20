@@ -28,15 +28,6 @@ PanelWindow {
 
   mask: Region { item: centerOpen ? fullScreenCatcher : null }
 
-  onToggle: {
-    if (centerOpen) {
-      mainRect.x = default_x
-    }
-    else {
-      mainRect.x = default_x + 1000
-    }
-  }
-
   Item {
     id: fullScreenCatcher
     anchors.fill: parent
@@ -55,7 +46,7 @@ PanelWindow {
         topMargin: 20 * uiScale
         bottomMargin: 76 * uiScale
       }
-      x: default_x + 1000
+      x: centerOpen ? default_x : default_x + 1000   // <-- changed
       width: 512 * uiScale
       color: "#70000000"
       border.width: 3 * uiScale
@@ -70,7 +61,7 @@ PanelWindow {
       Behavior on x {
         SpringAnimation {
           spring: 10
-          damping: 0.6
+          damping: 0.45
         }
       }
 
