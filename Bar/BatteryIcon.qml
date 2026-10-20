@@ -1,7 +1,7 @@
 import QtQuick
 import QtQuick.Layouts
 import Quickshell.Services.UPower
-import ".."
+import qs
 
 Rectangle { //Battery box
     id: batteryBox
@@ -9,7 +9,7 @@ Rectangle { //Battery box
     width: 100 * uiScale
     height: 36 * uiScale
     color: "transparent"
-    border.color: Colors.md3.primary
+    border.color: Colors.primary
     border.width: 2 * uiScale
     radius: 8 * uiScale
     clip: true
@@ -30,7 +30,7 @@ Rectangle { //Battery box
     property color barColor: {
       var bat_round = Math.ceil(pct / 10) * 10 
       bat_round = Math.max(0, Math.min(80, bat_round))
-      return Colors.palette["primary" + bat_round]
+      return Colors["primary" + bat_round]
     }
 
     RowLayout {
@@ -55,7 +55,7 @@ Rectangle { //Battery box
 
     Text {
       anchors.centerIn: parent
-      color: Colors.palette.primary90
+      color: Colors.primary90
       font.pixelSize: 24 * batteryBox.uiScale
       font.bold: true
       style: Text.Outline

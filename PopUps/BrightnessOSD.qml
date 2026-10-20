@@ -4,7 +4,7 @@ import Quickshell
 import Quickshell.Wayland
 import Quickshell.Io
 import Quickshell.Widgets
-import ".."
+import qs
 
 Scope {
 	id: root
@@ -78,7 +78,7 @@ Scope {
 			Rectangle {
 				anchors.fill: parent
 				radius: 12 * uiScale
-				color: "#70" + Colors.md3.on_primary_fixed.substring(1)
+				color: "#70" + Colors.on_primary_fixed.substring(1)
 
 				RowLayout {
 					anchors {
@@ -103,7 +103,7 @@ Scope {
 
 						implicitHeight: 20 * uiScale
 						radius: 4 * uiScale
-						color: Colors.md3.background
+						color: Colors.background
 
 						Rectangle {
 							anchors {
@@ -111,7 +111,7 @@ Scope {
 								top: parent.top
 								bottom: parent.bottom
 							}
-							color: Colors.md3.primary
+							color: Colors.primary
 
 							implicitWidth: parent.width * root.brightness
 							radius: parent.radius

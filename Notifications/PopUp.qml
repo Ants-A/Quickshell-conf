@@ -1,7 +1,7 @@
 import Quickshell
 import Quickshell.Services.Notifications
 import QtQuick
-import ".."
+import qs
 
 Rectangle {
   id: card
@@ -36,7 +36,7 @@ Rectangle {
   radius: 12 * scaleFactor
   color: "#80000000"
   border.width: 2 * scaleFactor
-  border.color: Colors.md3.primary
+  border.color: Colors.primary
 
   // Left edge of the text column (moves right when an icon is shown).
   readonly property real textX: icon.visible ? 24 * scaleFactor + icon.width + 24 * scaleFactor : 10 * scaleFactor
@@ -170,14 +170,14 @@ Rectangle {
         height: 36 * scaleFactor
         radius: 8 * scaleFactor
         // Darken the fill on hover for clear visual feedback.
-        color: hoverArea.containsMouse ? Qt.darker(Colors.md3.primary, 1.2) : Colors.md3.primary
+        color: hoverArea.containsMouse ? Qt.darker(Colors.primary, 1.2) : Colors.primary
         width: Math.min(actionLabel.implicitWidth + 36 * scaleFactor, 240 * scaleFactor)
 
         Text {
           id: actionLabel
           anchors.centerIn: parent
           text: modelData.text
-          color: Colors.md3.on_primary
+          color: Colors.on_primary
           font.pixelSize: 14 * scaleFactor
           font.bold: true
           elide: Text.ElideRight

@@ -4,7 +4,7 @@ import Quickshell
 import Quickshell.Wayland 
 import Quickshell.Services.Pipewire
 import Quickshell.Widgets
-import ".."
+import qs
 
 Scope {
 	id: root
@@ -62,7 +62,7 @@ Scope {
 			Rectangle {
 				anchors.fill: parent
 				radius: 12 * uiScale
-				color: "#70" + Colors.md3.on_primary_fixed.substring(1)
+				color: "#70" + Colors.on_primary_fixed.substring(1)
 
 				RowLayout {
 					anchors {
@@ -93,7 +93,7 @@ Scope {
 
 						implicitHeight: 20 * uiScale
 						radius: 3 * uiScale
-            color: Colors.md3.background
+            color: Colors.background
 
 						Rectangle {
 							anchors {
@@ -101,7 +101,7 @@ Scope {
 								top: parent.top
 								bottom: parent.bottom
 							}
-              color: ((Pipewire.defaultAudioSink?.audio.muted ?? false) ?  Colors.md3.on_primary : Colors.md3.primary)
+              color: ((Pipewire.defaultAudioSink?.audio.muted ?? false) ?  Colors.on_primary : Colors.primary)
 
 							implicitWidth: parent.width * Pipewire.defaultAudioSink?.audio.volume ?? 0
 							radius: parent.radius

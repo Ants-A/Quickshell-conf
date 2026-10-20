@@ -5,7 +5,7 @@ import QtQuick.Controls
 import Quickshell.Io
 import Qt5Compat.GraphicalEffects
 import Quickshell.Services.Pam
-import ".."
+import qs
 
 
 
@@ -39,21 +39,21 @@ WlSessionLock {
       }
       focus: true
       background: Rectangle {
-        color: Colors.md3.background
+        color: Colors.background
         border.width: 5
-        border.color: Colors.md3.on_primary
+        border.color: Colors.on_primary
         radius: 30
       }
       font.pixelSize: 36
-      placeholderTextColor: Colors.md3.primary
+      placeholderTextColor: Colors.primary
       rightPadding: 52
       leftPadding: 52
       placeholderText: "Don't touch it"
       width: 512
       height: 81
-      color: Colors.md3.primary
+      color: Colors.primary
       echoMode: TextInput.Password
-      onTextChanged: placeholderTextColor = Colors.md3.primary
+      onTextChanged: placeholderTextColor = Colors.primary
       onAccepted: pam.start()
     }
 
@@ -87,12 +87,12 @@ WlSessionLock {
           textBox.text = ""
           if (failedAttempts >= maxAttempts) {
             textBox.placeholderText = "Awww, you got locked out"
-            textBox.placeholderTextColor = Colors.md3.error
+            textBox.placeholderTextColor = Colors.error
             textBox.enabled = false
             lockTimer.start()
           } else {
             textBox.placeholderText = "Stuuupid"
-            textBox.placeholderTextColor = Colors.md3.error
+            textBox.placeholderTextColor = Colors.error
           }
         }
       }

@@ -5,7 +5,7 @@ import Quickshell.Services.Notifications
 import QtQuick
 import QtQuick.Layouts
 import QtQml.Models
-import "../"
+import qs
 
 Rectangle {
   id: root
@@ -33,11 +33,11 @@ Rectangle {
   Layout.rightMargin: 10 * uiScale
 
   width: parent.width
-  color: Colors.md3.background
+  color: Colors.background
   implicitHeight: 256 * uiScale
   radius: 16 * uiScale
   border.width: 1 * uiScale
-  border.color: Colors.md3.primary
+  border.color: Colors.primary
 
   // Runs nmcli and parses the active connection
   Process {
@@ -83,14 +83,14 @@ Rectangle {
 
     Text {
       text: root.wifiIcon + " "
-      color: root.connected ? Colors.md3.primary : Colors.md3.outline
+      color: root.connected ? Colors.primary : Colors.outline
       font.family: "JetBrainsMono Nerd Font"   // use whatever Nerd Font you have installed
       font.pixelSize: 64 * uiScale
     }
 
     Text {
       text: root.connected ? root.ssid : "Not connected"
-      color: Colors.md3.primary
+      color: Colors.primary
       font.pixelSize: 58 * uiScale
     }
   }

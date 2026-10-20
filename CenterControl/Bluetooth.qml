@@ -4,7 +4,7 @@ import Quickshell.Services.Notifications
 import QtQuick
 import QtQuick.Layouts
 import QtQml.Models
-import "../"
+import qs
 
 
 Rectangle {
@@ -17,11 +17,11 @@ Rectangle {
   Layout.rightMargin: 10 * uiScale
 
   width: parent.width
-  color: Colors.md3.background
+  color: Colors.background
   implicitHeight: 256 * uiScale
   radius: 16 * uiScale
   border.width: 1 * uiScale
-  border.color: Colors.md3.primary
+  border.color: Colors.primary
 
   MouseArea {
     objectName: "cardMouseArea"

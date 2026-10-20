@@ -7,10 +7,10 @@ import Quickshell.Services.Pipewire
 import Quickshell.Services.UPower
 import Quickshell.Services.SystemTray
 //Homemade files
+import qs
 import "TrayIcons.qml"
 import "BatteryIcon.qml"
 import "SysPerformance.qml"
-import ".."
 
 
 Rectangle{
@@ -22,7 +22,7 @@ Rectangle{
     leftMargin: 6 * uiScale
     rightMargin: 6 * uiScale
   }
-  color: Colors.md3.background_dark
+  color: Colors.background_dark 
   opacity: 0.69
   radius: 12 * uiScale
 
@@ -65,7 +65,7 @@ Rectangle{
       Text {
         height: 36 * root.uiScale
         text: "󰖁"
-        color: Colors.md3.primary
+        color: Colors.primary
         font.pixelSize: 26 * root.uiScale
         visible: Pipewire.defaultAudioSink.audio.muted
       }
@@ -77,7 +77,7 @@ Rectangle{
         height: 36 * root.uiScale
         color: "transparent"
         radius: 8 * root.uiScale
-        border.color: Colors.md3.primary
+        border.color: Colors.primary
         border.width: 2 * root.uiScale
         Text { 
           id: clockText
@@ -85,7 +85,7 @@ Rectangle{
           text: Qt.formatDateTime(clock.date, "hh:mm dd MMM")
           font.pixelSize: 28 * root.uiScale
           font.bold: true
-          color: Colors.palette.primary90
+          color: Colors.primary90
         }
       }
     }

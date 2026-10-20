@@ -50,7 +50,7 @@ PanelWindow {
       width: 512 * uiScale
       color: "#70000000"
       border.width: 3 * uiScale
-      border.color: Colors.md3.primary
+      border.color: Colors.primary
       radius: 16 * uiScale
 
       MouseArea {
@@ -93,7 +93,7 @@ PanelWindow {
           bottomMargin: 10 * uiScale
         }
         border.width: 2 * uiScale
-        border.color: Colors.md3.primary_container
+        border.color: Colors.primary_container
         radius: 8 * uiScale
         color: "#30000000"
 
@@ -109,13 +109,13 @@ PanelWindow {
           Text {
             Layout.fillWidth: true
             text: "Notifications"
-            color: Colors.md3.primary
+            color: Colors.primary
             font.pixelSize: 28 * uiScale
           }
 
           Text {
             text: "Clear All"
-            color: notServer.history.count > 0 ? Colors.md3.error : Colors.palette.neutral40
+            color: notServer.history.count > 0 ? Colors.error : Colors.neutral40
             font.pixelSize: 28 * uiScale
             MouseArea {
               anchors.fill: parent

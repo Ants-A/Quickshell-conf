@@ -1,6 +1,6 @@
 import QtQuick
 import Quickshell.Io
-import ".."
+import qs
 
 Row {
   id: root
@@ -63,7 +63,7 @@ Row {
     height: 36 * root.uiScale
     color: "transparent"
     radius: 8 * root.uiScale
-    border.color: Colors.md3.primary
+    border.color: Colors.primary
     border.width: 2 * root.uiScale
 
     Text {
@@ -73,7 +73,7 @@ Row {
       font.pixelSize: 24 * root.uiScale
       font.bold: true
       font.family: "monospace"   // fixed width so the bar doesn't jitter
-      color: Colors.palette.primary90
+      color: Colors.primary90
     }
   }
 
@@ -83,7 +83,7 @@ Row {
     height: 36 * root.uiScale
     color: "transparent"
     radius: 8 * root.uiScale
-    border.color: Colors.md3.primary
+    border.color: Colors.primary
     border.width: 2 * root.uiScale
 
     Text {
@@ -93,7 +93,7 @@ Row {
       font.pixelSize: 24 * root.uiScale
       font.bold: true
       font.family: "Symbols Nerd Font"
-      color: Colors.palette.primary90
+      color: Colors.primary90
     }
   }
 }
