@@ -33,7 +33,7 @@ PanelWindow {
 
     MouseArea {
       anchors.fill: parent
-      onClicked: centerOpen = false
+      onClicked: CenterIpcHandler.open = false
     }
 
     Rectangle {

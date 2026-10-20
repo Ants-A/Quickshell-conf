@@ -76,13 +76,13 @@ Rectangle {
   RowLayout {
     anchors {
       left: parent.left
-      leftMargin: 64 * uiScale
+      leftMargin: 32 * uiScale
       verticalCenter: parent.verticalCenter
     }
     spacing: 24 * uiScale
 
     Text {
-      text: root.wifiIcon + " "
+      text: root.wifiIcon
       color: root.connected ? Colors.primary : Colors.outline
       font.family: "JetBrainsMono Nerd Font"   // use whatever Nerd Font you have installed
       font.pixelSize: 56 * uiScale
@@ -91,7 +91,7 @@ Rectangle {
     Text {
       text: root.connected ? root.ssid : "Not connected"
       color: Colors.primary
-      font.pixelSize: 50 * uiScale
+      font.pixelSize: 36 * uiScale
     }
   }
 
