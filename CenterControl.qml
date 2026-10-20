@@ -5,6 +5,7 @@ import QtQuick
 import QtQuick.Layouts
 import QtQml.Models
 import "./Notifications"
+import "./CenterControl/"
 
 PanelWindow {
   id: centerWindow
@@ -73,7 +74,26 @@ PanelWindow {
         }
       }
 
+      ColumnLayout {
+        anchors {
+          top: parent.top
+          left: parent.left
+          right: parent.right
+          bottom: nothistory.top
+          topMargin: 24 * uiScale
+          bottomMargin: 24 * uiScale
+          leftMargin: 1 * uiScale
+          rightMargin: 1 * uiScale
+        }
+        spacing: 32 * uiScale
+
+        Wifi {}
+        Bluetooth {}
+        Wifi {}
+      }
+
       Rectangle { // notification history
+        id: nothistory
         anchors {
           fill: parent
           topMargin: 400 * uiScale
