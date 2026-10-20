@@ -19,15 +19,6 @@ ShellRoot {
     target: "lock"
     function lock(): void {lock.locked = true;}
   }
-  IpcHandler {
-    target: "notifications"
-    function toggle() : void { 
-      centercontrol.centerOpen = !centercontrol.centerOpen;
-      centercontrol.toggle();
-    }
-  }
-
-
 
   Variants {
     model: Quickshell.screens
@@ -69,8 +60,13 @@ ShellRoot {
     id: notserver
   }
 
-  CenterControl {
-    id: centercontrol
-    notServer: notserver
+  Variants {
+    model: Quickshell.screens
+    CenterControl {
+      id: centercontrol
+      notServer: notserver
+      required property var modelData
+      screen: modelData
+    }
   }
 }

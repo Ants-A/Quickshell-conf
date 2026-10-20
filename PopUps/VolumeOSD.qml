@@ -62,7 +62,8 @@ Scope {
 			Rectangle {
 				anchors.fill: parent
 				radius: 12 * uiScale
-				color: "#70" + Colors.on_primary_fixed.substring(1)
+				color: Colors.background_dark
+opacity: 0.8
 
 				RowLayout {
 					anchors {

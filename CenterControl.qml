@@ -10,10 +10,9 @@ import "./CenterControl/"
 PanelWindow {
   id: centerWindow
   readonly property real uiScale: UiScale.factor(width)
-  property bool centerOpen: false
+  property bool centerOpen: CenterIpcHandler.open
   property var notServer
   property var default_x: 2028 * uiScale
-  signal toggle()
   WlrLayershell.namespace: "qs-bar"
 
   anchors {
