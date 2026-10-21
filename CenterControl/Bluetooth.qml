@@ -6,7 +6,6 @@ import QtQuick.Layouts
 import QtQml.Models
 import qs
 
-
 Rectangle {
   id: root
   readonly property real uiScale: UiScale.factor(screen.width)
@@ -20,8 +19,8 @@ Rectangle {
   color: Colors.background
   implicitHeight: 256 * uiScale
   radius: 16 * uiScale
-  border.width: 1 * uiScale
-  border.color: Colors.primary
+  border.width: 2 * uiScale
+  border.color: Colors.primary_container
 
   MouseArea {
     objectName: "cardMouseArea"

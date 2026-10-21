@@ -35,9 +35,9 @@ Rectangle {
   width: parent.width
   color: Colors.background
   implicitHeight: 256 * uiScale
-  radius: 16 * uiScale
-  border.width: 1 * uiScale
-  border.color: Colors.primary
+  radius: 12 * uiScale
+  border.width: 2 * uiScale
+  border.color: Colors.primary_container
 
   // Runs nmcli and parses the active connection
   Process {
@@ -85,13 +85,13 @@ Rectangle {
       text: root.wifiIcon
       color: root.connected ? Colors.primary : Colors.outline
       font.family: "JetBrainsMono Nerd Font"   // use whatever Nerd Font you have installed
-      font.pixelSize: 56 * uiScale
+      font.pixelSize: 52 * uiScale
     }
 
     Text {
       text: root.connected ? root.ssid : "Not connected"
       color: Colors.primary
-      font.pixelSize: 36 * uiScale
+      font.pixelSize: 28 * uiScale
     }
   }
 
