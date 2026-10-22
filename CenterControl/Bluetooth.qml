@@ -16,13 +16,11 @@ Rectangle {
   readonly property int connectedCount: connectedDevices.length
 
   Layout.fillWidth: true
-  Layout.fillHeight: true
   Layout.leftMargin: 10 * uiScale
   Layout.rightMargin: 10 * uiScale
 
-  width: parent.width
-  color: Colors.background
-  implicitHeight: 256 * uiScale
+  color: "#50000000"
+  implicitHeight: 96 * uiScale
   radius: 16 * uiScale
   border.width: 2 * uiScale
   border.color: Colors.primary_container

@@ -69,7 +69,7 @@ PanelWindow {
           top: parent.top
           left: parent.left
           right: parent.right
-          bottom: nothistory.top
+          bottom: parent.bottom
           topMargin: 24 * uiScale
           bottomMargin: 24 * uiScale
           leftMargin: 1 * uiScale
@@ -79,93 +79,89 @@ PanelWindow {
 
         Wifi {}
         Bluetooth {}
-        Wifi {}
-      }
 
-      Rectangle { // notification history
-        id: nothistory
-        anchors {
-          fill: parent
-          topMargin: 400 * uiScale
-          rightMargin: 10 * uiScale
-          leftMargin: 10 * uiScale
-          bottomMargin: 10 * uiScale
-        }
-        border.width: 2 * uiScale
-        border.color: Colors.primary_container
-        radius: 8 * uiScale
-        color: "#30000000"
+        Rectangle { // notification history
+          id: nothistory
+          Layout.fillWidth: true
+          Layout.fillHeight: true
+          Layout.leftMargin: 10 * uiScale
+          Layout.rightMargin: 10 * uiScale
+          border.width: 2 * uiScale
+          border.color: Colors.primary_container
+          radius: 8 * uiScale
+          color: "#50000000"
 
-        RowLayout {
-          id: headerRow
-          anchors {
-            top: parent.top
-            left: parent.left
-            right: parent.right
-            margins: 12 * uiScale
-          }
-
-          Text {
-            Layout.fillWidth: true
-            text: "Notifications"
-            color: Colors.primary
-            font.pixelSize: 28 * uiScale
-          }
-
-          Text {
-            text: "Clear All"
-            color: notServer.history.count > 0 ? Colors.error : Colors.neutral40
-            font.pixelSize: 28 * uiScale
-            MouseArea {
-              anchors.fill: parent
-              onClicked: { notServer.history.clear() }
+          RowLayout {
+            id: headerRow
+            anchors {
+              top: parent.top
+              left: parent.left
+              right: parent.right
+              margins: 12 * uiScale
             }
-          }
-        }
 
-        ListView {
-          id: historyListView
-          anchors {
-            top: headerRow.bottom
-            bottom: parent.bottom
-            left: parent.left
-            right: parent.right
-            leftMargin: 24 * uiScale
-            topMargin: 12 * uiScale
-            bottomMargin: 12 * uiScale
-          }
-          clip: true
-          spacing: 12 * uiScale
+            Text {
+              Layout.fillWidth: true
+              text: "Notifications"
+              color: Colors.primary
+              font.pixelSize: 28 * uiScale
+            }
 
-          model: notServer.history
-
-          delegate: PopUp {
-            id: historyCard
-            width: historyListView.width - 24 * uiScale
-            scaleFactor: centerWindow.uiScale
-            history: notServer.history
-            resolveNotif: (id) => notServer.liveNotification(id)
-
-            ListView.onRemove: SequentialAnimation {
-              PropertyAction { target: historyCard; property: "ListView.delayRemove"; value: true }
-              ParallelAnimation {
-                NumberAnimation { target: historyCard; property: "opacity"; to: 0; duration: 200 }
-                NumberAnimation { target: historyCard; property: "x"; to: -100; duration: 200 }
+            Text {
+              text: "Clear All"
+              color: notServer.history.count > 0 ? Colors.error : Colors.neutral40
+              font.pixelSize: 28 * uiScale
+              MouseArea {
+                anchors.fill: parent
+                onClicked: { notServer.history.clear() }
               }
-              PropertyAction { target: historyCard; property: "ListView.delayRemove"; value: false }
             }
           }
 
-          add: Transition {
-            NumberAnimation { properties: "x,y"; from: 100; duration: 120 }
-          }
+          ListView {
+            id: historyListView
+            anchors {
+              top: headerRow.bottom
+              bottom: parent.bottom
+              left: parent.left
+              right: parent.right
+              leftMargin: 24 * uiScale
+              topMargin: 12 * uiScale
+              bottomMargin: 12 * uiScale
+            }
+            clip: true
+            spacing: 12 * uiScale
 
-          addDisplaced: Transition {
-            NumberAnimation { properties: "x,y"; duration: 220 }
-          }
+            model: notServer.history
 
-          removeDisplaced: Transition {
-            NumberAnimation { properties: "x,y"; duration: 220 }
+            delegate: PopUp {
+              id: historyCard
+              width: historyListView.width - 24 * uiScale
+              scaleFactor: centerWindow.uiScale
+              history: notServer.history
+              resolveNotif: (id) => notServer.liveNotification(id)
+
+              ListView.onRemove: SequentialAnimation {
+                PropertyAction { target: historyCard; property: "ListView.delayRemove"; value: true }
+                ParallelAnimation {
+                  NumberAnimation { target: historyCard; property: "opacity"; to: 0; duration: 200 }
+                  NumberAnimation { target: historyCard; property: "x"; to: -100; duration: 200 }
+                }
+                PropertyAction { target: historyCard; property: "ListView.delayRemove"; value: false }
+              }
+            }
+
+            add: Transition {
+              NumberAnimation { properties: "x,y"; from: 100; duration: 120 }
+            }
+
+            addDisplaced: Transition {
+              NumberAnimation { properties: "x,y"; duration: 220 }
+            }
+
+            removeDisplaced: Transition {
+              NumberAnimation { properties: "x,y"; duration: 220 }
+            }
           }
         }
       }
