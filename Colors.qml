@@ -3,107 +3,107 @@ import QtQuick
 import Quickshell
 
 Singleton {
-    readonly property color background_dark: "#060405"
+    readonly property color background_dark: "#040506"
 
-    readonly property color background: "#171216"
+    readonly property color background: "#111418"
 
     readonly property color error: "#ffb4ab"
 
     readonly property color error_container: "#93000a"
 
-    readonly property color inverse_on_surface: "#352e34"
+    readonly property color inverse_on_surface: "#2e3035"
 
-    readonly property color inverse_primary: "#7d4e7d"
+    readonly property color inverse_primary: "#39608f"
 
-    readonly property color inverse_surface: "#ebdfe6"
+    readonly property color inverse_surface: "#e1e2e8"
 
-    readonly property color on_background: "#ebdfe6"
+    readonly property color on_background: "#e1e2e8"
 
     readonly property color on_error: "#690005"
 
     readonly property color on_error_container: "#ffdad6"
 
-    readonly property color on_primary: "#4a204c"
+    readonly property color on_primary: "#00315b"
 
-    readonly property color on_primary_container: "#ffd6fa"
+    readonly property color on_primary_container: "#d3e4ff"
 
-    readonly property color on_primary_fixed: "#320936"
+    readonly property color on_primary_fixed: "#001c38"
 
-    readonly property color on_primary_fixed_variant: "#633664"
+    readonly property color on_primary_fixed_variant: "#1e4876"
 
-    readonly property color on_secondary: "#3c2b3b"
+    readonly property color on_secondary: "#263141"
 
-    readonly property color on_secondary_container: "#f5dbf0"
+    readonly property color on_secondary_container: "#d7e3f8"
 
-    readonly property color on_secondary_fixed: "#261625"
+    readonly property color on_secondary_fixed: "#111c2b"
 
-    readonly property color on_secondary_fixed_variant: "#534152"
+    readonly property color on_secondary_fixed_variant: "#3c4758"
 
-    readonly property color on_surface: "#ebdfe6"
+    readonly property color on_surface: "#e1e2e8"
 
-    readonly property color on_surface_variant: "#d0c3cc"
+    readonly property color on_surface_variant: "#c3c6cf"
 
-    readonly property color on_tertiary: "#4c261e"
+    readonly property color on_tertiary: "#3c2947"
 
-    readonly property color on_tertiary_container: "#ffdad3"
+    readonly property color on_tertiary_container: "#f5d9ff"
 
-    readonly property color on_tertiary_fixed: "#33110b"
+    readonly property color on_tertiary_fixed: "#261431"
 
-    readonly property color on_tertiary_fixed_variant: "#673b32"
+    readonly property color on_tertiary_fixed_variant: "#543f5e"
 
-    readonly property color outline: "#998d96"
+    readonly property color outline: "#8d9199"
 
-    readonly property color outline_variant: "#4d444c"
+    readonly property color outline_variant: "#43474e"
 
-    readonly property color primary: "#edb4ea"
+    readonly property color primary: "#a3c9fe"
 
-    readonly property color primary_container: "#633664"
+    readonly property color primary_container: "#1e4876"
 
-    readonly property color primary_fixed: "#ffd6fa"
+    readonly property color primary_fixed: "#d3e4ff"
 
-    readonly property color primary_fixed_dim: "#edb4ea"
+    readonly property color primary_fixed_dim: "#a3c9fe"
 
     readonly property color scrim: "#000000"
 
-    readonly property color secondary: "#d8bfd4"
+    readonly property color secondary: "#bcc7db"
 
-    readonly property color secondary_container: "#534152"
+    readonly property color secondary_container: "#3c4758"
 
-    readonly property color secondary_fixed: "#f5dbf0"
+    readonly property color secondary_fixed: "#d7e3f8"
 
-    readonly property color secondary_fixed_dim: "#d8bfd4"
+    readonly property color secondary_fixed_dim: "#bcc7db"
 
     readonly property color shadow: "#000000"
 
-    readonly property color source_color: "#231323"
+    readonly property color source_color: "#268ae7"
 
-    readonly property color surface: "#171216"
+    readonly property color surface: "#111418"
 
-    readonly property color surface_bright: "#3e373c"
+    readonly property color surface_bright: "#37393e"
 
-    readonly property color surface_container: "#241e23"
+    readonly property color surface_container: "#1d2024"
 
-    readonly property color surface_container_high: "#2e282d"
+    readonly property color surface_container_high: "#272a2f"
 
-    readonly property color surface_container_highest: "#393338"
+    readonly property color surface_container_highest: "#32353a"
 
-    readonly property color surface_container_low: "#1f1a1f"
+    readonly property color surface_container_low: "#191c20"
 
-    readonly property color surface_container_lowest: "#120d11"
+    readonly property color surface_container_lowest: "#0c0e13"
 
-    readonly property color surface_dim: "#171216"
+    readonly property color surface_dim: "#111418"
 
-    readonly property color surface_tint: "#edb4ea"
+    readonly property color surface_tint: "#a3c9fe"
 
-    readonly property color surface_variant: "#4d444c"
+    readonly property color surface_variant: "#43474e"
 
-    readonly property color tertiary: "#f6b8ab"
+    readonly property color tertiary: "#d8bde3"
 
-    readonly property color tertiary_container: "#673b32"
+    readonly property color tertiary_container: "#543f5e"
 
-    readonly property color tertiary_fixed: "#ffdad3"
+    readonly property color tertiary_fixed: "#f5d9ff"
 
-    readonly property color tertiary_fixed_dim: "#f6b8ab"
+    readonly property color tertiary_fixed_dim: "#d8bde3"
 
 
     readonly property color error0: "#000000"
@@ -144,181 +144,181 @@ Singleton {
 
     readonly property color neutral0: "#000000"
 
-    readonly property color neutral10: "#1e1a1d"
+    readonly property color neutral10: "#1a1c1e"
 
     readonly property color neutral100: "#ffffff"
 
-    readonly property color neutral15: "#292528"
+    readonly property color neutral15: "#242629"
 
-    readonly property color neutral20: "#342f32"
+    readonly property color neutral20: "#2f3033"
 
-    readonly property color neutral25: "#3f3a3d"
+    readonly property color neutral25: "#3a3b3e"
 
-    readonly property color neutral30: "#4a4549"
+    readonly property color neutral30: "#46474a"
 
-    readonly property color neutral35: "#565154"
+    readonly property color neutral35: "#515256"
 
-    readonly property color neutral40: "#625d60"
+    readonly property color neutral40: "#5d5e61"
 
-    readonly property color neutral5: "#131013"
+    readonly property color neutral5: "#0f1114"
 
-    readonly property color neutral50: "#7c7579"
+    readonly property color neutral50: "#76777a"
 
-    readonly property color neutral60: "#968f92"
+    readonly property color neutral60: "#909094"
 
-    readonly property color neutral70: "#b1a9ad"
+    readonly property color neutral70: "#ababae"
 
-    readonly property color neutral80: "#ccc4c8"
+    readonly property color neutral80: "#c6c6ca"
 
-    readonly property color neutral90: "#e9e0e4"
+    readonly property color neutral90: "#e3e2e6"
 
-    readonly property color neutral95: "#f7eef2"
+    readonly property color neutral95: "#f1f0f4"
 
-    readonly property color neutral98: "#fff7fa"
+    readonly property color neutral98: "#faf9fd"
 
-    readonly property color neutral99: "#fffbff"
+    readonly property color neutral99: "#fdfcff"
 
     readonly property color neutral_variant0: "#000000"
 
-    readonly property color neutral_variant10: "#211920"
+    readonly property color neutral_variant10: "#181c22"
 
     readonly property color neutral_variant100: "#ffffff"
 
-    readonly property color neutral_variant15: "#2b232a"
+    readonly property color neutral_variant15: "#22262d"
 
-    readonly property color neutral_variant20: "#362e35"
+    readonly property color neutral_variant20: "#2c3137"
 
-    readonly property color neutral_variant25: "#423940"
+    readonly property color neutral_variant25: "#373c43"
 
-    readonly property color neutral_variant30: "#4d444c"
+    readonly property color neutral_variant30: "#43474e"
 
-    readonly property color neutral_variant35: "#595057"
+    readonly property color neutral_variant35: "#4f535a"
 
-    readonly property color neutral_variant40: "#665b63"
+    readonly property color neutral_variant40: "#5a5e66"
 
-    readonly property color neutral_variant5: "#160f15"
+    readonly property color neutral_variant5: "#0d1117"
 
-    readonly property color neutral_variant50: "#7f747c"
+    readonly property color neutral_variant50: "#73777f"
 
-    readonly property color neutral_variant60: "#998d96"
+    readonly property color neutral_variant60: "#8d9199"
 
-    readonly property color neutral_variant70: "#b4a8b1"
+    readonly property color neutral_variant70: "#a8abb4"
 
-    readonly property color neutral_variant80: "#d0c3cc"
+    readonly property color neutral_variant80: "#c3c6cf"
 
-    readonly property color neutral_variant90: "#eddee8"
+    readonly property color neutral_variant90: "#dfe2eb"
 
-    readonly property color neutral_variant95: "#fbedf6"
+    readonly property color neutral_variant95: "#eef1fa"
 
-    readonly property color neutral_variant98: "#fff7fa"
+    readonly property color neutral_variant98: "#f8f9ff"
 
-    readonly property color neutral_variant99: "#fffbff"
+    readonly property color neutral_variant99: "#fdfcff"
 
     readonly property color primary0: "#000000"
 
-    readonly property color primary10: "#36003d"
+    readonly property color primary10: "#001c38"
 
     readonly property color primary100: "#ffffff"
 
-    readonly property color primary15: "#45054c"
+    readonly property color primary15: "#002749"
 
-    readonly property color primary20: "#521458"
+    readonly property color primary20: "#00315b"
 
-    readonly property color primary25: "#5f2164"
+    readonly property color primary25: "#003d6e"
 
-    readonly property color primary30: "#6c2d70"
+    readonly property color primary30: "#004881"
 
-    readonly property color primary35: "#79397d"
+    readonly property color primary35: "#005495"
 
-    readonly property color primary40: "#87458a"
+    readonly property color primary40: "#0060a9"
 
-    readonly property color primary5: "#250029"
+    readonly property color primary5: "#001126"
 
-    readonly property color primary50: "#a35ea4"
+    readonly property color primary50: "#0079d3"
 
-    readonly property color primary60: "#bf77c0"
+    readonly property color primary60: "#3593f1"
 
-    readonly property color primary70: "#dc91dc"
+    readonly property color primary70: "#6baeff"
 
-    readonly property color primary80: "#faacf9"
+    readonly property color primary80: "#a2c9ff"
 
-    readonly property color primary90: "#ffd6fa"
+    readonly property color primary90: "#d3e4ff"
 
-    readonly property color primary95: "#ffebfa"
+    readonly property color primary95: "#eaf1ff"
 
-    readonly property color primary98: "#fff7fa"
+    readonly property color primary98: "#f8f9ff"
 
-    readonly property color primary99: "#fffbff"
+    readonly property color primary99: "#fdfcff"
 
     readonly property color secondary0: "#000000"
 
-    readonly property color secondary10: "#261625"
+    readonly property color secondary10: "#111c2b"
 
     readonly property color secondary100: "#ffffff"
 
-    readonly property color secondary15: "#312030"
+    readonly property color secondary15: "#1b2636"
 
-    readonly property color secondary20: "#3c2b3b"
+    readonly property color secondary20: "#263141"
 
-    readonly property color secondary25: "#473646"
+    readonly property color secondary25: "#313c4c"
 
-    readonly property color secondary30: "#534152"
+    readonly property color secondary30: "#3c4758"
 
-    readonly property color secondary35: "#604c5e"
+    readonly property color secondary35: "#485364"
 
-    readonly property color secondary40: "#6c586a"
+    readonly property color secondary40: "#545f70"
 
-    readonly property color secondary5: "#1a0c1a"
+    readonly property color secondary5: "#061120"
 
-    readonly property color secondary50: "#867183"
+    readonly property color secondary50: "#6c788a"
 
-    readonly property color secondary60: "#a18a9d"
+    readonly property color secondary60: "#8691a4"
 
-    readonly property color secondary70: "#bca4b8"
+    readonly property color secondary70: "#a0acbf"
 
-    readonly property color secondary80: "#d8bfd4"
+    readonly property color secondary80: "#bcc7db"
 
-    readonly property color secondary90: "#f5dbf0"
+    readonly property color secondary90: "#d7e3f8"
 
-    readonly property color secondary95: "#ffebfa"
+    readonly property color secondary95: "#eaf1ff"
 
-    readonly property color secondary98: "#fff7fa"
+    readonly property color secondary98: "#f8f9ff"
 
-    readonly property color secondary99: "#fffbff"
+    readonly property color secondary99: "#fdfcff"
 
     readonly property color tertiary0: "#000000"
 
-    readonly property color tertiary10: "#33110b"
+    readonly property color tertiary10: "#261431"
 
     readonly property color tertiary100: "#ffffff"
 
-    readonly property color tertiary15: "#3f1b14"
+    readonly property color tertiary15: "#311e3b"
 
-    readonly property color tertiary20: "#4c261e"
+    readonly property color tertiary20: "#3c2947"
 
-    readonly property color tertiary25: "#593028"
+    readonly property color tertiary25: "#483452"
 
-    readonly property color tertiary30: "#673b32"
+    readonly property color tertiary30: "#543f5e"
 
-    readonly property color tertiary35: "#74473d"
+    readonly property color tertiary35: "#604b6b"
 
-    readonly property color tertiary40: "#825248"
+    readonly property color tertiary40: "#6c5677"
 
-    readonly property color tertiary5: "#250703"
+    readonly property color tertiary5: "#1b0925"
 
-    readonly property color tertiary50: "#9e6a60"
+    readonly property color tertiary50: "#866f91"
 
-    readonly property color tertiary60: "#ba8378"
+    readonly property color tertiary60: "#a188ac"
 
-    readonly property color tertiary70: "#d89d91"
+    readonly property color tertiary70: "#bca2c7"
 
-    readonly property color tertiary80: "#f6b8ab"
+    readonly property color tertiary80: "#d8bde3"
 
-    readonly property color tertiary90: "#ffdad3"
+    readonly property color tertiary90: "#f5d9ff"
 
-    readonly property color tertiary95: "#ffede9"
+    readonly property color tertiary95: "#fcebff"
 
-    readonly property color tertiary98: "#fff8f6"
+    readonly property color tertiary98: "#fff7fc"
 
     readonly property color tertiary99: "#fffbff"
 
