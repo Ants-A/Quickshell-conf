@@ -5,6 +5,7 @@ import qs
 
 Rectangle { //Battery box
     id: batteryBox
+    visible: UPower.displayDevice.isLaptopBattery
     property real uiScale: 1
     width: 100 * uiScale
     height: 36 * uiScale
