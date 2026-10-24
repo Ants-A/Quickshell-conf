@@ -186,7 +186,7 @@ Row {
     Text {
       id: ramText
       anchors.centerIn: parent
-      text: "  " + root.memUsedGb.toFixed(1) + " GB"
+      text: "  " + root.memUsedGb.toFixed(1) + " GB"
       font.pixelSize: 24 * root.uiScale
       font.bold: true
       font.family: "Symbols Nerd Font"
