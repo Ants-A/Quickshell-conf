@@ -8,6 +8,7 @@ import ".."
 
 Scope {
   id: root
+  property var use_screen 
 
   // Notification history shown in the center control.
   property alias history: history
@@ -141,6 +142,7 @@ Scope {
   PanelWindow { // The notification popups
     id: popupWindow
     readonly property real uiScale: UiScale.factor(screen.width)
+    screen: use_screen
     anchors {
       bottom: true
       right: true
