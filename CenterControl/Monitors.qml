@@ -18,7 +18,8 @@ Rectangle {
   Layout.leftMargin: 10 * uiScale
   Layout.rightMargin: 10 * uiScale
 
-  color: "#50000000"
+  color: mouseArea.containsMouse ? "#30ffffff" : "#50000000"
+  Behavior on color { ColorAnimation { duration: 250 } }
   implicitHeight: 96 * uiScale
   radius: 12 * uiScale
   border.width: 2 * uiScale
@@ -33,8 +34,11 @@ Rectangle {
   }
 
   MouseArea {
+    id: mouseArea
     objectName: "cardMouseArea"
     anchors.fill: parent
+    hoverEnabled: true
+    cursorShape: Qt.PointingHandCursor
     onClicked: Quickshell.execDetached([
       "hyprctl", "dispatch",
       'hl.dsp.exec_cmd("[float; center; size 1920 1080] kitty hyprmon")'
