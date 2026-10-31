@@ -164,6 +164,11 @@ PanelWindow {
             }
           }
         }
+        RowLayout {
+          Monitors {}
+          SleepButton {}
+          PowerButton {}
+        }
       }
     }
   }
