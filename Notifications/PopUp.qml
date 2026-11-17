@@ -66,10 +66,14 @@ Rectangle {
     }
   }
 
-  // Clicking the card body dismisses the notification (and removes the
-  // history row). Actions are deliberately NOT invoked here — that would fire
-  // every action at once (e.g. Pair *and* Decline). Use the action buttons.
+  // With one action, make the whole card its affordance. With multiple
+  // actions, keep the card click as a dismiss and leave the choices explicit.
   function activate() {
+    if (card.actionList.length === 1) {
+      card.invokeAction(card.actionList[0].identifier)
+      return
+    }
+
     card.removeRowFromHistory()
     if (card.resolveNotif) {
       const notif = card.resolveNotif(card.notifId)
@@ -157,7 +161,7 @@ Rectangle {
   Row {
     id: actionRow
     objectName: "actionRow"
-    visible: card.actionList.length > 0
+    visible: card.actionList.length > 1
     x: card.textX
     y: texts.y + texts.height + 8 * scaleFactor
     spacing: 12 * scaleFactor

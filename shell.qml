@@ -24,7 +24,7 @@ ShellRoot {
     model: Quickshell.screens
     
     PanelWindow {
-      WlrLayershell.layer: WlrLayer.Bottom
+      WlrLayershell.layer: WlrLayer.Top
       anchors {
         bottom: true
         left: true
