@@ -91,8 +91,10 @@ Rectangle {
       if (notif) {
         for (const action of (notif.actions || [])) {
           if (action.identifier === identifier) {
+            const resident = notif.resident
             action.invoke()
-            break
+            if (resident) notif.dismiss()
+            return
           }
         }
         notif.dismiss()

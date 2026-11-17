@@ -113,7 +113,7 @@ PanelWindow {
               font.pixelSize: 28 * uiScale
               MouseArea {
                 anchors.fill: parent
-                onClicked: { notServer.history.clear() }
+                onClicked: { notServer.clearHistory() }
               }
             }
           }

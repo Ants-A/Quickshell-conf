@@ -31,18 +31,11 @@ Scope {
     Timer { interval: 5000; repeat: false }
   }
 
-  function removePopup(notif) {
-    const notifId = notif ? notif.id : undefined
+  function removePopup(notifId) {
     for (let i = 0; i < activePopups.count; i++) {
       const row = activePopups.get(i)
       if (notifId !== undefined && row.notifId === notifId) {
         activePopups.remove(i, 1)
-        break
-      }
-    }
-    for (let i = 0; i < root.activeNotifs.length; i++) {
-      if (root.activeNotifs[i] === notif) {
-        root.activeNotifs.splice(i, 1)
         break
       }
     }
@@ -58,9 +51,13 @@ Scope {
     return null
   }
 
-  function expireId(id) {
-    const n = root.liveNotification(id)
-    if (n) n.expire()
+  function clearHistory() {
+    while (history.count > 0) {
+      const id = history.get(history.count - 1).notifId
+      history.remove(history.count - 1)
+      const n = root.liveNotification(id)
+      if (n) n.dismiss()
+    }
   }
 
   NotificationServer {
@@ -69,10 +66,16 @@ Scope {
     actionsSupported: true
     bodySupported: true
     imageSupported: true
+    persistenceSupported: true
 
     onNotification: n => {
       // Keep the history bounded.
-      while (history.count >= root.maxHistory) history.remove(history.count - 1, 1)
+      while (history.count >= root.maxHistory) {
+        const oldId = history.get(history.count - 1).notifId
+        history.remove(history.count - 1, 1)
+        const old = root.liveNotification(oldId)
+        if (old) old.expire()
+      }
 
       // Snapshot of the notification as PLAIN data. ListModel does not
       // preserve QObject (or null) values in roles, so rows hold only
@@ -111,27 +114,23 @@ Scope {
       })
       root.activeNotifs.unshift(n)
 
-      // Deterministic auto-expire for this toast (5s), independent of any
-      // delegate state. Resolves by id at fire time -> safe if already closed.
+      // Hide the toast after 5s while keeping its action available in history.
       const expireT = expireFactory.createObject(root)
-      expireT.triggered.connect(function() { root.expireId(n.id); expireT.destroy() })
+      const notifId = n.id
+      expireT.triggered.connect(function() { root.removePopup(notifId); expireT.destroy() })
       expireT.start()
 
-      // Bound the number of toasts on screen.
-      if (root.activeNotifs.length > root.maxPopups) {
-        const oldest = root.activeNotifs[root.activeNotifs.length - 1]
-        if (oldest) oldest.expire()
-      }
-      // Hard fallback: drop any excess rows (each removal still animates out
+      // Bound the number of toasts on screen (each removal still animates out
       // via the delegate's ListView.onRemove).
       while (activePopups.count > root.maxPopups) {
-        root.activeNotifs.pop()
         activePopups.remove(activePopups.count - 1, 1)
       }
 
       // Remove the toast from the screen when the notification closes.
       n.closed.connect(function() {
-        root.removePopup(n)
+        root.removePopup(notifId)
+        const index = root.activeNotifs.indexOf(n)
+        if (index !== -1) root.activeNotifs.splice(index, 1)
       })
 
       n.tracked = true
