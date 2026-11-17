@@ -57,13 +57,8 @@ ShellRoot {
     id: brightnessBox
   }
 
-  Variants {
-    model: Quickshell.screens
-    NotServer {
-      id: notserver
-      required property var modelData
-      use_screen: modelData
-    }
+  NotServer {
+    id: notserver
   }
 
 

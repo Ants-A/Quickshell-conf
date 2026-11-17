@@ -8,7 +8,6 @@ import ".."
 
 Scope {
   id: root
-  property var use_screen 
 
   // Notification history shown in the center control.
   property alias history: history
@@ -139,10 +138,14 @@ Scope {
     }
   }
 
+  Variants {
+    model: Quickshell.screens
+
   PanelWindow { // The notification popups
     id: popupWindow
+    required property var modelData
     readonly property real uiScale: UiScale.factor(screen.width)
-    screen: use_screen
+    screen: modelData
     anchors {
       bottom: true
       right: true
@@ -205,5 +208,6 @@ Scope {
         NumberAnimation { properties: "x,y"; duration: 220 }
       }
     }
+  }
   }
 }
