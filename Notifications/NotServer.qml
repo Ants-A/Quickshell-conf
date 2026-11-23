@@ -1,5 +1,6 @@
 import Quickshell
 import Quickshell.Wayland
+import Quickshell.Hyprland
 import Quickshell.Services.Notifications
 import QtQuick
 import QtQuick.Layouts
@@ -51,6 +52,35 @@ Scope {
     return null
   }
 
+  // Kitty forwards Codex OSC 9 notifications under its own application name.
+  // OSC 777 gives future notifications a distinct Codex title instead.
+  function isCodexNotification(n) {
+    if (n.appName.toLowerCase() !== "kitty") return false
+    return n.summary === "Codex" || n.summary.startsWith("Approval requested:") ||
+           n.summary.startsWith("Approval requested by ") || n.summary.startsWith("Codex wants to edit ") ||
+           n.summary.startsWith("Plan mode prompt:") || n.summary.startsWith("Question:")
+  }
+
+  function clearCodexHistory() {
+    for (let i = history.count - 1; i >= 0; i--) {
+      const row = history.get(i)
+      if (!row.codexNotification) continue
+      const id = row.notifId
+      history.remove(i, 1)
+      const n = root.liveNotification(id)
+      if (n) n.dismiss()
+    }
+  }
+
+  Connections {
+    target: Hyprland
+    function onActiveToplevelChanged() {
+      const window = Hyprland.activeToplevel
+      if (window && window.wayland && window.wayland.appId.toLowerCase() === "kitty")
+        root.clearCodexHistory()
+    }
+  }
+
   function clearHistory() {
     while (history.count > 0) {
       const id = history.get(history.count - 1).notifId
@@ -98,6 +128,7 @@ Scope {
         summary: n.summary,
         body: n.body,
         appName: n.appName,
+        codexNotification: root.isCodexNotification(n),
         urgency: n.urgency,
         image: image,
         actions: actions,
