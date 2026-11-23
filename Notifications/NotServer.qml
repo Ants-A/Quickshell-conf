@@ -69,8 +69,10 @@ Scope {
     persistenceSupported: true
 
     onNotification: n => {
+      const saveHistory = !n.transient && n.appName.toLowerCase() !== "hyprshot"
+
       // Keep the history bounded.
-      while (history.count >= root.maxHistory) {
+      while (saveHistory && history.count >= root.maxHistory) {
         const oldId = history.get(history.count - 1).notifId
         history.remove(history.count - 1, 1)
         const old = root.liveNotification(oldId)
@@ -91,7 +93,7 @@ Scope {
       }
       const actions = JSON.stringify(actionList)
 
-      history.insert(0, {
+      if (saveHistory) history.insert(0, {
         notifId: n.id,
         summary: n.summary,
         body: n.body,
@@ -126,9 +128,12 @@ Scope {
         activePopups.remove(activePopups.count - 1, 1)
       }
 
-      // Remove the toast from the screen when the notification closes.
+      // A client can close a notification after it has been read in the app.
       n.closed.connect(function() {
         root.removePopup(notifId)
+        for (let i = history.count - 1; i >= 0; i--) {
+          if (history.get(i).notifId === notifId) history.remove(i, 1)
+        }
         const index = root.activeNotifs.indexOf(n)
         if (index !== -1) root.activeNotifs.splice(index, 1)
       })
