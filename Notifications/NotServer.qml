@@ -138,7 +138,7 @@ Scope {
       // Prepend to the popup model so the newest toast appears at the bottom.
       // Text/data only — the delegate resolves the live object via
       // liveNotification(notifId) when a click actually needs it.
-      activePopups.insert(0, {
+      if (!n.lastGeneration) activePopups.insert(0, {
         notifId: n.id,
         summary: n.summary,
         body: n.body,
@@ -150,7 +150,14 @@ Scope {
       // Hide the toast after 5s while keeping its action available in history.
       const expireT = expireFactory.createObject(root)
       const notifId = n.id
-      expireT.triggered.connect(function() { root.removePopup(notifId); expireT.destroy() })
+      expireT.triggered.connect(function() {
+        root.removePopup(notifId)
+        if (!saveHistory) {
+          const live = root.liveNotification(notifId)
+          if (live) live.expire()
+        }
+        expireT.destroy()
+      })
       expireT.start()
 
       // Bound the number of toasts on screen (each removal still animates out
