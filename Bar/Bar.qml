@@ -61,12 +61,22 @@ Rectangle{
 
       //TrayIcons {}
 
-      Text {
+      Rectangle {
+        implicitWidth: muteText.implicitWidth + 20 * root.uiScale
         height: 36 * root.uiScale
-        text: "󰖁"
-        color: Colors.primary70
-        font.pixelSize: 26 * root.uiScale
-        visible: Pipewire.defaultAudioSink.audio.muted
+        color: Qt.alpha(Colors.background_dark, 0.69)
+        radius: 8 * root.uiScale
+        border.color: Colors.primary
+        border.width: 2 * root.uiScale
+        visible: Pipewire.defaultAudioSink?.audio.muted ?? false
+
+        Text {
+          id: muteText
+          anchors.centerIn: parent
+          text: "󰖁"
+          color: Colors.primary70
+          font.pixelSize: 26 * root.uiScale
+        }
       }
 
       BatteryIcon { uiScale: root.uiScale }

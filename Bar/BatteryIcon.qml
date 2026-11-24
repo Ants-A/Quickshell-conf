@@ -31,7 +31,7 @@ Rectangle { //Battery box
     property color barColor: {
       var bat_round = Math.ceil(pct / 10) * 10 
       bat_round = Math.max(0, Math.min(80, bat_round))
-      return Colors["primary" + bat_round]
+      return Qt.darker(Colors["primary" + bat_round], 1.08)
     }
 
     RowLayout {
