@@ -187,8 +187,8 @@ Scope {
     }
 
     margins {
-      bottom: 78 * uiScale
-      right: 18 * uiScale
+      bottom: 72 * uiScale
+      right: 28 * uiScale
     }
 
     width: 512 * uiScale
