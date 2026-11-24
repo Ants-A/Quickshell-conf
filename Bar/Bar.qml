@@ -76,7 +76,7 @@ Rectangle{
         height: 36 * root.uiScale
         color: Qt.alpha(Colors.background_dark, 0.69)
         radius: 8 * root.uiScale
-        border.color: Colors.primary_container
+        border.color: Colors.primary
         border.width: 2 * root.uiScale
         Text { 
           id: clockText

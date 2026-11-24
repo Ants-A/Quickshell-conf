@@ -10,7 +10,7 @@ Rectangle { //Battery box
     width: 100 * uiScale
     height: 36 * uiScale
     color: Qt.alpha(Colors.background_dark, 0.69)
-    border.color: Colors.primary_container
+    border.color: Colors.primary
     border.width: 2 * uiScale
     radius: 8 * uiScale
     clip: true
