@@ -49,7 +49,7 @@ Rectangle{
     Item { Layout.fillWidth: true } // pushes everything to the right
 
     Row {
-      spacing: 24 * root.uiScale
+      spacing: 12 * root.uiScale
 
       Rectangle {
         color: "transparent"
@@ -61,22 +61,15 @@ Rectangle{
 
       //TrayIcons {}
 
-      Rectangle {
-        implicitWidth: muteText.implicitWidth + 20 * root.uiScale
+      Text {
         height: 36 * root.uiScale
-        color: Qt.alpha(Colors.background_dark, 0.69)
-        radius: 8 * root.uiScale
-        border.color: Colors.primary
-        border.width: 2 * root.uiScale
+        verticalAlignment: Text.AlignVCenter
+        text: "󰖁"
+        color: Colors.primary70
+        font.pixelSize: 32 * root.uiScale
+        style: Text.Outline
+        styleColor: Colors.background_dark
         visible: Pipewire.defaultAudioSink?.audio.muted ?? false
-
-        Text {
-          id: muteText
-          anchors.centerIn: parent
-          text: "󰖁"
-          color: Colors.primary70
-          font.pixelSize: 26 * root.uiScale
-        }
       }
 
       BatteryIcon { uiScale: root.uiScale }

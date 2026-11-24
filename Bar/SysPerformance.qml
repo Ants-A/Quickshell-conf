@@ -17,7 +17,7 @@ Row {
   // "" = still detecting, otherwise "nvidia" | "amd" | "intel" | "none"
   property string gpuMode: ""
 
-  spacing: 16 * uiScale
+  spacing: 12 * uiScale
 
   FileView {
     id: statFile
