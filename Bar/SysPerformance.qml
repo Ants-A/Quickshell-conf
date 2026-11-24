@@ -139,7 +139,7 @@ Row {
     height: 36 * root.uiScale
     color: Qt.alpha(Colors.background_dark, 0.69)
     radius: 8 * root.uiScale
-    border.color: Colors.on_primary
+    border.color: Colors.primary_container
     border.width: 2 * root.uiScale
 
     Text {
@@ -160,7 +160,7 @@ Row {
     height: 36 * root.uiScale
     color: Qt.alpha(Colors.background_dark, 0.69)
     radius: 8 * root.uiScale
-    border.color: Colors.on_primary
+    border.color: Colors.primary_container
     border.width: 2 * root.uiScale
 
     Text {
@@ -180,7 +180,7 @@ Row {
     height: 36 * root.uiScale
     color: Qt.alpha(Colors.background_dark, 0.69)
     radius: 8 * root.uiScale
-    border.color: Colors.on_primary
+    border.color: Colors.primary_container
     border.width: 2 * root.uiScale
 
     Text {
