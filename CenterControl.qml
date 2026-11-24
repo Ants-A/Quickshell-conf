@@ -48,7 +48,7 @@ PanelWindow {
       x: centerOpen ? default_x : default_x + 1000   // <-- changed
       width: 512 * uiScale
       color: "#50000000"
-      border.width: 3 * uiScale
+      border.width: 2 * uiScale
       border.color: Colors.primary
       radius: 16 * uiScale
 
