@@ -43,11 +43,11 @@ PanelWindow {
         bottom: parent.bottom
         rightMargin: 20 * uiScale
         topMargin: 20 * uiScale
-        bottomMargin: 76 * uiScale
+        bottomMargin: 72 * uiScale
       }
       x: centerOpen ? default_x : default_x + 1000   // <-- changed
       width: 512 * uiScale
-      color: "#70000000"
+      color: "#50000000"
       border.width: 3 * uiScale
       border.color: Colors.primary
       radius: 16 * uiScale
