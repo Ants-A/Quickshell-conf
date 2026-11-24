@@ -32,9 +32,9 @@ ShellRoot {
       }
       property real uiScale: UiScale.factor(width)
       margins {
-        bottom: 4 * uiScale
-        left: 6 * uiScale
-        right: 6 * uiScale
+        bottom: 2 * uiScale
+        left: 3 * uiScale
+        right: 3 * uiScale
       }
       WlrLayershell.namespace: "qs-bar"
       required property var modelData

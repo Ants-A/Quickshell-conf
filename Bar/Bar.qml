@@ -18,12 +18,11 @@ Rectangle{
   readonly property real uiScale: UiScale.factor(width)
   anchors {
     fill: parent
-    bottomMargin: 4 * uiScale
-    leftMargin: 6 * uiScale
-    rightMargin: 6 * uiScale
+    bottomMargin: 2 * uiScale
+    leftMargin: 3 * uiScale
+    rightMargin: 3 * uiScale
   }
-  color: Colors.background_dark 
-  opacity: 0.69
+  color: "transparent"
   radius: 12 * uiScale
 
   PwObjectTracker {
@@ -65,7 +64,7 @@ Rectangle{
       Text {
         height: 36 * root.uiScale
         text: "󰖁"
-        color: Colors.primary
+        color: Colors.primary70
         font.pixelSize: 26 * root.uiScale
         visible: Pipewire.defaultAudioSink.audio.muted
       }
@@ -75,9 +74,9 @@ Rectangle{
       Rectangle { //System clock
         implicitWidth: 185 * root.uiScale
         height: 36 * root.uiScale
-        color: "transparent"
+        color: Qt.alpha(Colors.background_dark, 0.69)
         radius: 8 * root.uiScale
-        border.color: Colors.primary
+        border.color: Colors.on_primary
         border.width: 2 * root.uiScale
         Text { 
           id: clockText

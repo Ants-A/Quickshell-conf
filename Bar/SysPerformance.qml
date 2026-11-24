@@ -137,9 +137,9 @@ Row {
   Rectangle {
     implicitWidth: cpuText.implicitWidth + 24 * root.uiScale
     height: 36 * root.uiScale
-    color: "transparent"
+    color: Qt.alpha(Colors.background_dark, 0.69)
     radius: 8 * root.uiScale
-    border.color: Colors.primary
+    border.color: Colors.on_primary
     border.width: 2 * root.uiScale
 
     Text {
@@ -158,9 +158,9 @@ Row {
     visible: root.gpuMode !== "" && root.gpuMode !== "none"
     implicitWidth: gpuText.implicitWidth + 24 * root.uiScale
     height: 36 * root.uiScale
-    color: "transparent"
+    color: Qt.alpha(Colors.background_dark, 0.69)
     radius: 8 * root.uiScale
-    border.color: Colors.primary
+    border.color: Colors.on_primary
     border.width: 2 * root.uiScale
 
     Text {
@@ -178,9 +178,9 @@ Row {
   Rectangle {
     implicitWidth: ramText.implicitWidth + 24 * root.uiScale
     height: 36 * root.uiScale
-    color: "transparent"
+    color: Qt.alpha(Colors.background_dark, 0.69)
     radius: 8 * root.uiScale
-    border.color: Colors.primary
+    border.color: Colors.on_primary
     border.width: 2 * root.uiScale
 
     Text {

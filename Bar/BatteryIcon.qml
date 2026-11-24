@@ -9,8 +9,8 @@ Rectangle { //Battery box
     property real uiScale: 1
     width: 100 * uiScale
     height: 36 * uiScale
-    color: "transparent"
-    border.color: Colors.primary
+    color: Qt.alpha(Colors.background_dark, 0.69)
+    border.color: Colors.on_primary
     border.width: 2 * uiScale
     radius: 8 * uiScale
     clip: true
@@ -56,8 +56,8 @@ Rectangle { //Battery box
 
     Text {
       anchors.centerIn: parent
-      color: Colors.primary90
-      font.pixelSize: 24 * batteryBox.uiScale
+      color: "white"
+      font.pixelSize: 26 * batteryBox.uiScale
       font.bold: true
       style: Text.Outline
       styleColor: "black"
